@@ -8,6 +8,8 @@ int main()
 	cout << "povtor povtora" << endl;
 	cout << "say hi" << endl;
 
+	cout << "hallo amigos" << endl;
+
 	cout << "mir, mai, trud " << endl;
 	return 0;
 }
