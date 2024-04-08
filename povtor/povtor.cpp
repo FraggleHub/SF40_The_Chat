@@ -10,6 +10,8 @@ int main()
 
 	cout << "hallo amigos" << endl;
 
+	cout << "!!!!!!!!!!!!!!!!!!!!!"
+
 	cout << "mir, mai, trud " << endl;
 	return 0;
 }
