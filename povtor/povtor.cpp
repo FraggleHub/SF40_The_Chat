@@ -10,7 +10,7 @@ int main()
 
 	cout << "hallo amigos" << endl;
 
-	cout << "!!!!!!!!!!!!!!!!!!!!!"
+	cout << "!!!!!!!!!!!!!!!!!!!!!"<<endl;
 
 	cout << "mir, mai, trud " << endl;
 	return 0;
