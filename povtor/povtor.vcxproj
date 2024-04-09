@@ -129,10 +129,11 @@
   <ItemGroup>
     <ClCompile Include="chat_class.cpp" />
     <ClCompile Include="main_SF40_The_Chat.cpp" />
-    <ClCompile Include="povtor.cpp" />
+    <ClCompile Include="Users.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chat_class.h" />
+    <ClInclude Include="Users.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
