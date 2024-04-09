@@ -1,4 +1,8 @@
 
+
+
+/*
+
 #include <iostream>
 using namespace std;
 
@@ -15,3 +19,5 @@ int main()
 	cout << "mir, mai, trud " << endl;
 	return 0;
 }
+
+*/
