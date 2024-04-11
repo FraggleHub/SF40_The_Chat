@@ -2,11 +2,12 @@
 
 #include <iostream>
 using namespace std;
-
+//привет
 // global variables
+
 static int i0 = -1;//  Sender
 static int n0 = 1; // Sender
-
+int a;
 static int i1 = -1;//  Messenger
 static int n1 = 1;// Messenger
 
