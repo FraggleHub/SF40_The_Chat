@@ -15,6 +15,7 @@ int _idUser = 1;
 int main()
 {
     cout << "hi" << endl;
+    cout << "hi hi" << endl;
 
 
     Chat* Chat1 = new Chat; // da budet chat
