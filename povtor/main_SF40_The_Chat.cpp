@@ -16,7 +16,7 @@ int main()
 {
     cout << "hi" << endl;
     cout << "WWWWWWWWWw";
-    //
+    // ghgggggg
 
 
     Chat* Chat1 = new Chat; // da budet chat
