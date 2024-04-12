@@ -14,6 +14,7 @@ int _idUser = 1;
 
 int main()
 {
+    // warning
     cout << "hi" << endl;
     cout << "hi" << endl;
 
