@@ -7,8 +7,6 @@ using namespace std;
 
 class Users {
 protected:
-	int qqqq;
-
 	string userData; // data from users
 	vector<vector<string>> idUsers; // id from users in database
 
