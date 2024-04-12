@@ -32,7 +32,7 @@ int main()
     User user;
     int choice;
     int choice1{};
-
+    std::string senderName;
     do {
         std::cout << "Выберите действие:" << std::endl;
         std::cout << "1. Регистрация нового пользователя" << std::endl;
@@ -62,36 +62,39 @@ int main()
             bool loginSuccess = chat.login(userName, password, newUserID);
             if (loginSuccess) {
                 std::cout << "Вход в аккаунт прошел успешно." << std::endl;
-
+               
                 do {
                     std::cout << "Выберите действие" << std::endl;
                     std::cout << "1. Отправить сообщение всем" << std::endl;
                     std::cout << "2. Отправить сообщение конкретному пользователю" << std::endl;
                     std::cout << "3. Выйти из аккаунта" << std::endl;
+                    std::cout << "4. Просмотр полученных сообщений " << std::endl;
                     std::cin >> choice1;
 
                     switch (choice1) {
                     case 1: {
-                        std::string text;
-                        std::cout << "Введите сообщение" << std::endl;
-                        std::cin.ignore();
-                        std::getline(std::cin, text);
-                        //chat.addMessageToAll(text, userName);
+                        //std::string text;
+                       // std::cout << "Введите сообщение" << std::endl;
+                       // std::cin.ignore();
+                       // std::getline(std::cin, text);
+                       // chat.addMessage(senderName);
                         break;
                     }
                     case 2: {
-                        std::string recipient, text;
-                        std::cout << "Введите имя получателя: ";
-                        std::cin >> recipient;
-                        std::cin.ignore();
-                        std::cout << "Введите сообщение: ";
-                        std::getline(std::cin, text);
-                        // chat.addMessageToUser(text, userName, recipient);
+                        std::string senderName;
+                        std::cout << "Введите свое имя: ";
+                        std::cin >> senderName;
+                        chat.sendMessageUser(senderName);
+                    
                         break;
                     }
                     case 3: {
                         chat.logout();
                         std::cout << "Выход из аккаунта" << std::endl;
+                        break;
+                    }
+                    case 4: {
+                        chat.checkMessage();
                         break;
                     }
                     default:
@@ -102,11 +105,7 @@ int main()
             }
             break;
         }
-        case 3: {
-            chat.logout();
-            std::cout << "Выход из аккаунта" << std::endl;
-            break;
-        }
+        
         case 0: {
             std::cout << "Выход из программы." << std::endl;
             break;

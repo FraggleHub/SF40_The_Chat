@@ -57,3 +57,56 @@ void Chat::logout()
     }
 
 }
+
+void Chat::showAllUsers()
+{
+    std::cout << "Участники чата:" << std::endl;
+
+    for (auto& users : userDatabase) {
+        for (User& user : users) {
+            std::cout << user.getUserName() << " (id: " << user.getNewUserID() << ")" << std::endl;
+        }
+    }
+}
+
+void Chat::sendMessageUser( std::string senderName)
+{
+    showAllUsers();
+
+    int recipientID;
+    std::cout << "Введите ID получателя: ";
+    std::cin >> recipientID;
+
+    std::string messageText;
+    std::cout << "Введите текст сообщения: ";
+    std::cin.ignore();
+    std::getline(std::cin, messageText);
+    User* recipient = nullptr;
+
+    // Находим получателя с заданным ID
+    for (auto& users : userDatabase) {
+        for (User& user : users) {
+            if (user.getNewUserID() == recipientID) {
+                recipient = &user;
+                break;
+            }
+        }
+
+    }
+    if (recipient) {
+        Message newMessage = { senderName, recipientID, messageText };
+        messageHistory.push_back(newMessage);
+        std::cout << "Сообщение отправлено пользователю " << recipient->getUserName() << ": " << messageText << std::endl;
+    }
+    else {
+        std::cout << "Пользователь с указанным ID не найден." << std::endl;
+    }
+}
+
+void Chat::checkMessage()
+{
+    for (Message& message : messageHistory)
+    {
+        std::cout << "Новое сообщение от " << message.sender << ": " << message.text << std::endl;
+    }
+}
