@@ -15,7 +15,7 @@ protected:
 	int newUserID;
 public:
 	User(std::string password, std::string userName, int newUserID);
-	User();
+	User()=default;
 	std::string getPassword();
 	std::string getUserName();
 	int getNewUserID();
@@ -27,7 +27,7 @@ private:
 public:
 	std::vector<Message> messageHistory;
 	std::vector<std::vector<User>> userDatabase;
-	Chatss();
+	Chatss()=default;
 	bool registerUser(std::string userName, std::string password);
 	bool login(std::string userName, std::string password, int newUserID);
 	void logout();
