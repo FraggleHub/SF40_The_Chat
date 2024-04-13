@@ -3,17 +3,17 @@
 User::User(std::string password, std::string userName, int newUserID) :password(password), userName(userName), newUserID(newUserID) {}
 
 
-std::string User::getPassword() const
+std::string User::getPassword() 
 {
 	return password;
 }
 
-std::string User::getUserName() const
+std::string User::getUserName() 
 {
 	return userName;
 }
 
-int User::getNewUserID() const
+int User::getNewUserID()
 {
 	return newUserID;
 }
@@ -21,7 +21,7 @@ int User::getNewUserID() const
 bool Chat::registerUser(std::string userName, std::string password)
 {
     for (auto& users : userDatabase) {
-        for (const User& user : users) {
+        for ( User& user : users) {
             if (user.getUserName() == userName) {
                 std::cout << "Имя пользователя уже существует " << userName << std::endl;
                 return false;

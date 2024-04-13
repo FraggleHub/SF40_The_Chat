@@ -9,22 +9,23 @@ struct Message {
 
 class User
 {
-private:
+protected:
 	std::string password;
 	std::string userName;
 	int newUserID;
 public:
 	User(std::string password, std::string userName, int newUserID);
 	User();
-	std::string getPassword()const;
-	std::string getUserName() const;
-	int getNewUserID()const;
+	std::string getPassword();
+	std::string getUserName();
+	int getNewUserID();
 };
 class Chat
 {
 private:
 	User* currentUser;// Variable for current user
 public:
+	std::vector<Message> messageHistory;
 	std::vector<std::vector<User>> userDatabase;
 	Chat();
 	bool registerUser(std::string userName, std::string password);
