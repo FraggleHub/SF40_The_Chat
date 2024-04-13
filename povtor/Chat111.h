@@ -20,14 +20,14 @@ public:
 	std::string getUserName();
 	int getNewUserID();
 };
-class Chat
+class Chatss
 {
 private:
 	User* currentUser;// Variable for current user
 public:
 	std::vector<Message> messageHistory;
 	std::vector<std::vector<User>> userDatabase;
-	Chat();
+	Chatss();
 	bool registerUser(std::string userName, std::string password);
 	bool login(std::string userName, std::string password, int newUserID);
 	void logout();

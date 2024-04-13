@@ -1,37 +1,37 @@
-#include "chat_class.h"
+//#include "chat_class.h"
 #include <iostream>
 #include <vector>
-#include "Users.h"
-
+//#include "Users.h"
+#include "Chat111.h"
 #pragma warning(disable:4996)
 
 using namespace std;
 
-string hill = "n";
-string _login, _pass;
-int set;
-int _idUser = 1;
+//string hill = "n";
+//string _login, _pass;
+//int set;
+//int _idUser = 1;
+
+//int main()
+//{
+    // warning
+   // cout << "hi" << endl;
+    //cout << "hi" << endl;
+
+   // Chat* Chat1 = new Chat; // da budet chat
+
+   // delete Chat1;
+
+   // return 0;
+//}
 
 int main()
 {
-    // warning
-    cout << "hi" << endl;
-    cout << "hi" << endl;
-
-    Chat* Chat1 = new Chat; // da budet chat
-
-    delete Chat1;
-
-    return 0;
-}
-
-/*int main()
-{
     setlocale(LC_ALL, "Russian");
-    Chat chat;
+    Chatss chat;
     User user;
     int choice;
-    int choice1{};
+    int choice1;
     std::string senderName;
     do {
         std::cout << "Выберите действие:" << std::endl;
@@ -50,7 +50,7 @@ int main()
             std::cin >> username;
             std::cout << "Введите пароль: ";
             std::cin >> password;
-            chat.registerUser(username, password);
+            chatss.registerUser(username, password);
             break;
         }
         case 2: {
@@ -59,7 +59,7 @@ int main()
             std::cin >> userName;
             std::cout << "Введите пароль: ";
             std::cin >> password;
-            bool loginSuccess = chat.login(userName, password, newUserID);
+            bool loginSuccess = chatss.login(userName, password, newUserID);
             if (loginSuccess) {
                 std::cout << "Вход в аккаунт прошел успешно." << std::endl;
                
@@ -84,17 +84,17 @@ int main()
                         std::string senderName;
                         std::cout << "Введите свое имя: ";
                         std::cin >> senderName;
-                        chat.sendMessageUser(senderName);
+                        chatss.sendMessageUser(senderName);
                     
                         break;
                     }
                     case 3: {
-                        chat.logout();
+                        chatss.logout();
                         std::cout << "Выход из аккаунта" << std::endl;
                         break;
                     }
                     case 4: {
-                        chat.checkMessage();
+                        chatss.checkMessage();
                         break;
                     }
                     default:

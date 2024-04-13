@@ -1,4 +1,5 @@
 #include "Chat111.h"
+#include <iostream>
 
 User::User(std::string password, std::string userName, int newUserID) :password(password), userName(userName), newUserID(newUserID) {}
 
@@ -18,7 +19,7 @@ int User::getNewUserID()
 	return newUserID;
 }
 
-bool Chat::registerUser(std::string userName, std::string password)
+bool Chatss::registerUser(std::string userName, std::string password)
 {
     for (auto& users : userDatabase) {
         for ( User& user : users) {
@@ -34,7 +35,7 @@ bool Chat::registerUser(std::string userName, std::string password)
     return true;
 }
 
-bool Chat::login(std::string userName, std::string password, int newUserID)
+bool Chatss::login(std::string userName, std::string password, int newUserID)
 {
     for (auto& users : userDatabase) {
         for (User& user : users) {
@@ -49,7 +50,7 @@ bool Chat::login(std::string userName, std::string password, int newUserID)
     return false;
 }
 
-void Chat::logout()
+void Chatss::logout()
 {
     if (currentUser) {
         currentUser->getUserName();
@@ -58,7 +59,7 @@ void Chat::logout()
 
 }
 
-void Chat::showAllUsers()
+void Chatss::showAllUsers()
 {
     std::cout << "Участники чата:" << std::endl;
 
@@ -69,7 +70,7 @@ void Chat::showAllUsers()
     }
 }
 
-void Chat::sendMessageUser( std::string senderName)
+void Chatss::sendMessageUser( std::string senderName)
 {
     showAllUsers();
 
@@ -103,7 +104,7 @@ void Chat::sendMessageUser( std::string senderName)
     }
 }
 
-void Chat::checkMessage()
+void Chatss::checkMessage()
 {
     for (Message& message : messageHistory)
     {
