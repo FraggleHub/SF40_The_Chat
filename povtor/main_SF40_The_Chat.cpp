@@ -28,10 +28,11 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    Chatss chat;
+    Chatss chatss;
     User user;
     int choice;
     int choice1;
+    int newUserID{};
     std::string senderName;
     do {
         std::cout << "Выберите действие:" << std::endl;
@@ -117,4 +118,4 @@ int main()
     } while (choice != 0);
 
     return 0;
-}*/
+}
