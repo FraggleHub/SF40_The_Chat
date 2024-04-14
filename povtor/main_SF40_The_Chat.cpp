@@ -1,111 +1,85 @@
-//#include "chat_class.h"
+#include "chat_class.h"
 #include <iostream>
 #include <vector>
 #include "Chat111.h"
+#include <Windows.h>
+#include "AccountsConsole.h"
 
 using namespace std;
 
-//int main()
-//{
-    // warning
-   // cout << "hi" << endl;
-    //cout << "hi" << endl;
-
-   // Chat* Chat1 = new Chat; // da budet chat
-
-   // delete Chat1;
-
-   // return 0;
-//}
-
-int main()
-{
-    setlocale(LC_ALL, "Russian");
-    Chatss chatss;
+int main() {
+#pragma region settings chat
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+#pragma endregion
     User user;
-    int choice;
-    int choice1;
-    int newUserID{};
-    std::string senderName;
+    Chatss chats;
+    Enterface etc;
+    int choice, choice1, newUserId{};
+
+    string senderName;
     do {
-        std::cout << "Выберите действие:" << std::endl;
-        std::cout << "1. Регистрация нового пользователя" << std::endl;
-        std::cout << "2. Вход в аккаунт" << std::endl;
-        std::cout << "0. Выйти из программы" << std::endl;
+        cout << "Выберите действие: " << endl;
+        cout << "1 - Регистрация нового пользователя" << endl;
+        cout << "2 - Вход в аккаунт" << endl;
+        cout << "0 - Выйти из программы" << endl;
+        cin >> choice;
 
-        std::cout << "Введите номер выбранного действия: ";
-        std::cin >> choice;
-        std::cin.ignore();
-
-        switch (choice) {
+        switch (choice)
+        {
         case 1: {
-            std::string username, password;
-            std::cout << "Введите имя пользователя: ";
-            std::cin >> username;
-            std::cout << "Введите пароль: ";
-            std::cin >> password;
-            chatss.registerUser(username, password);
+            string username, password;
+            cout << "Введите имя пользователя: ";
+            cin >> username;
+            cout << "Введите пароль: ";
+            cin >> password;
+            chats.registerUser(username, password);
             break;
         }
         case 2: {
-            std::string userName, password;
-            std::cout << "Введите имя пользователя: ";
-            std::cin >> userName;
-            std::cout << "Введите пароль: ";
-            std::cin >> password;
-            bool loginSuccess = chatss.login(userName, password, newUserID);
+            string userName, password;
+            cout << "Введите имя пользователя: ";
+            cin >> userName;
+            cout << "\nВведите пароль: ";
+            cin >> password;
+            bool loginSuccess = chats.login(userName, password, newUserId);
             if (loginSuccess) {
-                std::cout << "Вход в аккаунт прошел успешно." << std::endl;
-               
+                cout << "Вход выполнен." << endl << endl;
                 do {
-                    std::cout << "Выберите действие" << std::endl;
-                    std::cout << "1. Отправить сообщение всем" << std::endl;
-                    std::cout << "2. Отправить сообщение конкретному пользователю" << std::endl;
-                    std::cout << "3. Выйти из аккаунта" << std::endl;
-                    std::cout << "4. Просмотр полученных сообщений " << std::endl;
-                    std::cin >> choice1;
-
-                    switch (choice1) {
+                    cout << "Выберите действие: " << endl;
+                    cout << "1 - Отправить сообщение всем." << endl;
+                    cout << "2 - Отправить сообщение одному пользователю." << endl;
+                    cout << "3 - Посмотреть полученные сообщения." << endl;
+                    cout << "0 - Выйти из аккаунта." << endl;
+                    cin >> choice1;
+                    switch (choice1)
+                    {
                     case 1: {
-                        //std::string text;
-                       // std::cout << "Введите сообщение" << std::endl;
-                       // std::cin.ignore();
-                       // std::getline(std::cin, text);
-                       // chat.addMessage(senderName);
                         break;
                     }
                     case 2: {
-                        std::string senderName;
-                        std::cout << "Введите свое имя: ";
-                        std::cin >> senderName;
-                        chatss.sendMessageUser(senderName);
-                    
+                        string senderName;
+                        cout << "Введите своё имя: ";
+                        cin >> senderName;
+                        etc.SendingMessage(senderName);
                         break;
                     }
                     case 3: {
-                        chatss.logout();
-                        std::cout << "Выход из аккаунта" << std::endl;
+                        etc.CheckedMessage();
                         break;
                     }
-                    case 4: {
-                        chatss.checkMessage();
+                    case 0: {
+                        chats.logout();
                         break;
                     }
                     default:
-                        std::cout << "Неверный выбор. Попробуйте снова." << std::endl;
+                        cout << "Под этим номером нет действий" << endl << endl;
                         break;
                     }
-                } while (choice1 != 3);
+                } while (choice1 != 0);
             }
-            break;
-        }
-        
-        case 0: {
-            std::cout << "Выход из программы." << std::endl;
-            break;
         }
         default:
-            std::cout << "Неверный выбор. Попробуйте снова." << std::endl;
             break;
         }
     } while (choice != 0);
