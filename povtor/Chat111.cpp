@@ -1,3 +1,4 @@
+/*
 #include "Chat111.h"
 #include <iostream>
 
@@ -98,3 +99,4 @@ void Chatss::checkMessage()
     for (Message& message : messageHistory)
         std::cout << "Новое сообщение от " << message.sender << ": " << message.text << std::endl;
 }
+*/

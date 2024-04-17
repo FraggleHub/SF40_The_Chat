@@ -1,3 +1,5 @@
+/*
+
 #include "AccountsConsole.h"
 #include <iostream>
 #include <vector>
@@ -39,3 +41,4 @@ void Enterface::SendingMessage(string senderName) {
 void Enterface::CheckedMessage() {
 	//проверка на новые сообщения
 }
+*/

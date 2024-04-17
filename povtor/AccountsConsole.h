@@ -5,6 +5,7 @@
 
 using namespace std;
 
+/*
 class Users {
 public:
 	Users(const string& name);
@@ -25,3 +26,4 @@ public:
 	void SendingMessage(string senderName);
 	void CheckedMessage();
 };
+*/

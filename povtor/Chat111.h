@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include <vector>
 #include <string>
@@ -35,3 +36,4 @@ public:
 	void sendMessageUser( std::string senderName); //We find the recipient by ID and send him a message
 	void checkMessage();
 };
+*/
