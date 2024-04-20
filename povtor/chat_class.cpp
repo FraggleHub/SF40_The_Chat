@@ -1,3 +1,4 @@
+/*
 #include  "chat_class.h"
 
 #include <iostream>
@@ -22,14 +23,14 @@ stringMasive::~stringMasive()
     delete[]m_chat;
 }
 
-/*stringMasive::stringMasive(const stringMasive& other) : m_length(other.m_length) //
+stringMasive::stringMasive(const stringMasive& other) : m_length(other.m_length) //
 {
     m_chat = new string[m_length];
     for (int i = 0; i < m_length; ++i)
     {
         m_chat[i] = other.m_chat[i];
     }
-} */
+} 
 
 void stringMasive::resize(int newLength) //resizer
 {
@@ -78,3 +79,4 @@ Chat::~Chat()
 }
 //---------------------------------------------------------
 
+*/

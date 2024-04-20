@@ -127,11 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AccountsConsole.cpp" />
     <ClCompile Include="Chat111.cpp" />
     <ClCompile Include="chat_class.cpp" />
+    <ClCompile Include="main_final_chat.cpp" />
     <ClCompile Include="main_SF40_The_Chat.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AccountsConsole.h" />
     <ClInclude Include="Chat111.h" />
     <ClInclude Include="chat_class.h" />
   </ItemGroup>
