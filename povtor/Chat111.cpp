@@ -100,3 +100,105 @@ void Chatss::checkMessage()
         std::cout << "Новое сообщение от " << message.sender << ": " << message.text << std::endl;
 }
 */
+#include "Chat111.h"
+#include <iostream>
+using namespace std;
+int NewChat::UserId = 0;
+Users::Users(int id, string login, string password, string name) :id(id), login(login), password(password), name(name) {}
+
+
+Users::~Users()
+{
+}
+
+string Users::getLogin()
+{
+    return login;
+}
+
+string Users::getPassword()
+{
+    return password;
+}
+
+string Users::getName()
+{
+    return name;
+}
+
+int Users::getId()
+{
+    return id;
+}
+
+NewChat::NewChat()
+{
+    usersArray = nullptr;
+    usersCount = 0;
+}
+
+NewChat::~NewChat()
+{
+    delete[] usersArray;
+}
+
+bool NewChat::registerUser(string login, string password, string name)
+{
+    for (int i = 0; i < usersCount; ++i) {
+        if (usersArray[i].getLogin() == login) {
+            cout << "Логин \"" << login << "\" уже занят. Выберите другой логин." << endl;
+            return false;
+        }
+    }
+    int newId = UserId + 1;
+    Users newUser(newId, login, password, name);
+    Users* temp = new Users[usersCount + 1];
+    for (int i = 0; i < usersCount; ++i) {
+        temp[i] = usersArray[i];
+    }
+    temp[usersCount] = newUser;
+    delete[] usersArray;
+    usersArray = temp;
+    UserId = newId;
+    ++usersCount;
+    cout << "Регистрация пользователя \"" << name << "\" успешно завершена." << endl;
+    return true;
+}
+
+bool NewChat::login(string login, string password)
+{
+    for (int i = 0; i < usersCount; ++i) {
+        if (usersArray[i].getLogin() == login && usersArray[i].getPassword() == password) {
+            cout << "Вход выполнен успешно. Добро пожаловать, " << usersArray[i].getName() << "!" << endl;
+            cout << "Ваш ID: " << usersArray[i].getId() << endl;
+            return true;
+        }
+    }
+
+    cout << "Неверный логин или пароль. Попробуйте снова." << endl;
+    return false;
+}
+
+void NewChat::dataUser()
+{
+    string login;
+    string password;
+    string name;
+
+    cout << "Введите логин: "; 
+    getline(cin, login);
+    cout << "Введите пароль: ";
+    cin >> password;
+    cout << "Введите имя: ";
+    cin.ignore();
+    getline(cin, name);
+    registerUser(login, password, name);
+}
+
+void NewChat::showAllUsers()
+{
+    cout << "Список зарегистрированных пользователей:" << endl;
+    for (int i = 0; i < usersCount; ++i) {
+        cout << "ID: " << usersArray[i].getId() << " | Имя: " << usersArray[i].getName() << endl;
+    }
+}

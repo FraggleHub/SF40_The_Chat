@@ -38,3 +38,46 @@ public:
 	
 };
 */
+#pragma once
+#include <string>
+using namespace std;
+struct Message {
+	string sender;
+	int recipientID;
+	string text;
+};
+
+class Users
+{
+protected:
+	string login;
+	string password;
+	string name;
+	int id;
+public:
+	Users(int id, string login, string password, string name);
+	Users() = default;
+	~Users();
+	string getLogin();
+	string getPassword();
+	string getName();
+	int getId();
+};
+class NewChat
+{
+protected:
+	static int UserId;
+	Users* usersArray;
+	int usersCount;
+	//Message* messages;
+	//int messagesCount;
+public:
+	NewChat();
+	~NewChat();
+	bool registerUser(string login, string password, string name);
+	bool login(string login, string password);
+	void dataUser();
+	void showAllUsers();
+	//void sendMessageUser();
+	//void checkMessage();
+};
