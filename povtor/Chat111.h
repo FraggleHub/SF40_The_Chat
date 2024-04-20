@@ -34,4 +34,5 @@ public:
 	void showAllUsers();// Show all registered users
 	void sendMessageUser( std::string senderName); //We find the recipient by ID and send him a message
 	void checkMessage();
+	
 };
