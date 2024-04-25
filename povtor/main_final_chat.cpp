@@ -49,11 +49,11 @@ int main()
 }
 */
 
-
 int main() {
 #pragma region settings chat
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
+#pragma endregion
     setlocale(LC_ALL, "Russian");
     int choice;
     int choice1;

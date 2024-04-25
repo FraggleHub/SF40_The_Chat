@@ -1,5 +1,9 @@
-/*
+#include "AccountsConsole.h"
+#include "Chat111.h"
+#include <iostream>
+#include <string>
 
+/*
 #include "AccountsConsole.h"
 #include <iostream>
 #include <vector>
@@ -14,8 +18,6 @@ void Enterface::checkUsers(Users* users, int size) const {
 		if (users[i].getName() != currentUser)
 			cout << users[i].getName() << endl;
 }
-
-
 void Enterface::SendingMessage(string senderName) {
 
 	string enterUser;
@@ -37,8 +39,30 @@ void Enterface::SendingMessage(string senderName) {
 		//место перехода для сообщения
 	}
 }
-
 void Enterface::CheckedMessage() {
 	//проверка на новые сообщения
 }
 */
+
+Messangers::Messangers() { }
+
+void Messangers::WhosMessage(int count) {
+	cout << "Кому хотите отправить сообщение?" << "\nВведите имя человека для начала отправки сообщения" << endl;
+	cin >> nameUser;
+	for (int i = 0; i < count; i++) {
+		if (usersArray[i].getName() == nameUser) {
+			cout << "Сообщение человеку: " << endl;
+		}
+		else {
+			cout << "Данного человека нет!\nПопробуйте найти другого." << endl << endl;
+		}
+	}
+}
+
+void Messangers::SendMessage() {
+
+}
+
+Messangers::~Messangers() {
+	//delete[] Messages;
+}

@@ -102,6 +102,7 @@ void Chatss::checkMessage()
 */
 #include "Chat111.h"
 #include <iostream>
+#include "AccountsConsole.h"
 using namespace std;
 int NewChat::UserId = 0;
 Users::Users(int id, string login, string password, string name) :id(id), login(login), password(password), name(name) {}
@@ -171,6 +172,7 @@ bool NewChat::login(string login, string password)
         if (usersArray[i].getLogin() == login && usersArray[i].getPassword() == password) {
             cout << "Вход выполнен успешно. Добро пожаловать, " << usersArray[i].getName() << "!" << endl;
             cout << "Ваш ID: " << usersArray[i].getId() << endl;
+            Messangers(usersCount);
             return true;
         }
     }

@@ -78,6 +78,7 @@ public:
 	bool login(string login, string password);
 	void dataUser();
 	void showAllUsers();
+
 	//void sendMessageUser();
 	//void checkMessage();
 };
