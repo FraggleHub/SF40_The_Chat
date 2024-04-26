@@ -5,48 +5,20 @@
 
 using namespace std;
 
-/*
-class Users {
-public:
-	Users(const string& name);
-	string getName() const;
-
-private:
-	string name;
-};
-
-class Enterface {
-protected:
-	string currentUser;
-public:
-	Enterface() = default;
-	Enterface(const string& currentUser);
-	void checkUsers(Users* users, int size) const;
-	void SendingMessage(string senderName);
-	void CheckedMessage();
-};
-*/
-
-struct Message {
-	string sender;
-	int rectID;
-	string text;
-};
-
 class someMessage {
 protected:
-	int in, out;
-	/*int all */ // пока думаю над этим
+	int _in, _out; // отправка от кого - кому
+	int _all; // использоваться будет только, если отправка всем пользователям сообщения
+	string _text; // сам текст сообщения
 public:
-	someMessage() = default;
-	someMessage(int inMess, int outMess);
+	someMessage(int in, int out, string text);
+	void allMessage(int all, string text);
 	string getSomeone();
 
 };
 
 class Messangers {
 protected:
-	string text;
 	Users* usersArray;
 	int userCount;
 public:
