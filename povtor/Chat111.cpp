@@ -102,11 +102,9 @@ void Chatss::checkMessage()
 */
 #include "Chat111.h"
 #include <iostream>
-#include "AccountsConsole.h"
 
 using namespace std;
 
-Messangers mess;
 int NewChat::UserId = 0;
 
 Users::Users(int id, string login, string password, string name) 
@@ -120,7 +118,52 @@ string Users::getPassword() { return password; }
 
 string Users::getName() { return name; }
 
-int Users::getId() { return id; }
+int Users::getId() const { return id; }
+
+void NewChat::Prog() {
+    bool isLoggedIn = true;
+    int choice;
+    string login;
+    string password;
+
+    while (true) {
+        if (isLoggedIn) {
+            cout << "Добро пожаловать в чат!" << endl;
+            isLoggedIn = false;
+        }
+
+        cout << "Выберите действие:" << endl;
+        cout << "1. Регистрация пользователя" << endl;
+        cout << "2. Вход в аккаунт" << endl;
+        cout << "3. Показать всех пользователей" << endl;
+        cout << "0. Выход из программы" << endl;
+
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            dataUser();
+            break;
+        case 2: {
+            cout << "Введите логин: " << endl;
+            cin >> login;
+            cout << "Введите пароль: " << endl;
+            cin >> password;
+            Entered(login, password);
+            break;
+        }
+        case 3:
+            showAllUsers();
+            break;
+        case 0: 
+            cout << "Выход из программы" << endl;
+            return;
+        default:
+            cout << "Такого выбора нет" << endl;
+            break;
+        }
+    }
+}
 
 NewChat::NewChat()
 {
@@ -156,13 +199,12 @@ bool NewChat::registerUser(string login, string password, string name)
     return true;
 }
 
-bool NewChat::login(string login, string password)
+bool NewChat::Entered(string login, string password)
 {
     for (int i = 0; i < usersCount; ++i) {
         if (usersArray[i].getLogin() == login && usersArray[i].getPassword() == password) {
             cout << "Вход выполнен успешно. Добро пожаловать, " << usersArray[i].getName() << "!" << endl;
             cout << "Ваш ID: " << usersArray[i].getId() << endl;
-            mess.WhosMessage(usersCount);
             return true;
         }
     }
@@ -177,7 +219,8 @@ void NewChat::dataUser()
     string password;
     string name;
 
-    cout << "Введите логин: "; 
+    cout << "Введите логин: ";
+    cin >> login;
     getline(cin, login);
     cout << "Введите пароль: ";
     cin >> password;

@@ -40,6 +40,7 @@ public:
 */
 #pragma once
 #include <string>
+
 using namespace std;
 struct Message {
 	string sender;
@@ -61,7 +62,7 @@ public:
 	string getLogin();
 	string getPassword();
 	string getName();
-	int getId();
+	int getId() const;
 };
 class NewChat
 {
@@ -72,10 +73,11 @@ protected:
 	//Message* messages;
 	//int messagesCount;
 public:
+	void Prog();
 	NewChat();
 	~NewChat();
 	bool registerUser(string login, string password, string name);
-	bool login(string login, string password);
+	bool Entered(string login, string password);
 	void dataUser();
 	void showAllUsers();
 

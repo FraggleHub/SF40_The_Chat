@@ -44,25 +44,25 @@ void Enterface::CheckedMessage() {
 }
 */
 
-Messangers::Messangers() { }
-
-void Messangers::WhosMessage(int count) {
-	cout << "Кому хотите отправить сообщение?" << "\nВведите имя человека для начала отправки сообщения" << endl;
-	cin >> nameUser;
-	for (int i = 0; i < count; i++) {
-		if (usersArray[i].getName() == nameUser) {
-			cout << "Сообщение человеку: " << endl;
-		}
-		else {
-			cout << "Данного человека нет!\nПопробуйте найти другого." << endl << endl;
-		}
-	}
-}
-
-void Messangers::SendMessage() {
-
-}
-
-Messangers::~Messangers() {
-	//delete[] Messages;
-}
+//Messangers::Messangers() { }
+//
+//void Messangers::WhosMessage(int count) {
+//	cout << "Кому хотите отправить сообщение?" << "\nВведите имя человека для начала отправки сообщения" << endl;
+//	cin >> nameUser;
+//	for (int i = 0; i < count; i++) {
+//		if (usersArray[i].getName() == nameUser) {
+//			cout << "Сообщение человеку: " << endl;
+//		}
+//		else {
+//			cout << "Данного человека нет!\nПопробуйте найти другого." << endl << endl;
+//		}
+//	}
+//}
+//
+//void Messangers::SendMessage() {
+//
+//}
+//
+//Messangers::~Messangers() {
+//	//delete[] Messages;
+//}
