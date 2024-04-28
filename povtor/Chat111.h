@@ -62,7 +62,7 @@ public:
 	string getLogin();
 	string getPassword();
 	string getName();
-	int getId() const;
+	int getId();
 };
 class NewChat
 {
