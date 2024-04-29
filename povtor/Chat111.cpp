@@ -102,39 +102,36 @@ void Chatss::checkMessage()
 */
 #include "Chat111.h"
 #include <iostream>
+#include "AccountsConsole.h"
+
 using namespace std;
+
+Messangers mess;
+
 int NewChat::UserId = 0;
 Users::Users(int id, string login, string password, string name) :id(id), login(login), password(password), name(name) {}
 
+Users::~Users() { }
 
-Users::~Users()
-{
-}
-
-string Users::getLogin()
-{
+string Users::getLogin() {
     return login;
 }
 
-string Users::getPassword()
-{
+string Users::getPassword() {
     return password;
 }
 
-string Users::getName()
-{
+string Users::getName() {
     return name;
 }
 
-int Users::getId()
-{
+int Users::getId() {
     return id;
 }
 
 NewChat::NewChat() {
     usersArray = nullptr;
     usersCount = 0;
-
 }
 
 NewChat::~NewChat()
@@ -168,16 +165,14 @@ bool NewChat::registerUser(string login, string password, string name)
     return true;
 }
 
-
-
 bool NewChat::Entered(string login, string password)
 {
-
-
     for (int i = 0; i < usersCount; ++i) {
         if (usersArray[i].getLogin() == login && usersArray[i].getPassword() == password) {
             cout << "Вход выполнен успешно. Добро пожаловать, " << usersArray[i].getName() << "!" << endl;
             cout << "Ваш уникальный ID: " << usersArray[i].getId() << endl;
+            showAllUsers();
+            mess.WhosMessage(usersCount, usersArray[i].getId());
             return true;
         }
     }

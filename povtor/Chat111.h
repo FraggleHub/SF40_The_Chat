@@ -70,8 +70,6 @@ protected:
 	static int UserId;
 	Users* usersArray;
 	int usersCount;
-	//Message* messages;
-	//int messagesCount;
 public:
 	void Prog();
 	NewChat();
@@ -80,7 +78,4 @@ public:
 	bool Entered(string login, string password);
 	void dataUser();
 	void showAllUsers();
-
-	//void sendMessageUser();
-	//void checkMessage();
 };
