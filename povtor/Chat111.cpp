@@ -130,8 +130,7 @@ int Users::getId() {
 }
 
 NewChat::NewChat() {
-    usersArray = nullptr;
-    usersCount = 0;
+    usersArray = new Users[number_users];
 }
 
 NewChat::~NewChat()
@@ -150,17 +149,17 @@ bool NewChat::registerUser(string login, string password, string name)
             return false;
         }
     }
+
+    if (usersCount >= number_users)
+    {
+        resizer();
+    }
     int newId = UserId + 1;
     Users newUser(newId, login, password, name);
-    Users* temp = new Users[usersCount + 1];
-    for (int i = 0; i < usersCount; ++i) {
-        temp[i] = usersArray[i];
-    }
-    temp[usersCount] = newUser;
-    delete[] usersArray;
-    usersArray = temp;
-    UserId = newId;
+    usersArray[usersCount] = newUser;
     ++usersCount;
+    UserId = newId;
+
     cout << "Регистрация пользователя \"" << name << "\" успешно завершена." << endl;
     return true;
 }
@@ -187,12 +186,12 @@ void NewChat::dataUser()
     string password;
     string name;
 
-    cout << "Введите логин: "; // Переделать через гетлайн 
+    cout << "Введите логин: ";  
     cin >> login;
     cout << "Введите пароль: ";
     cin >> password;
     cout << "Введите полное имя: ";
-    cin.ignore(); // Очистка буфера ввода
+    cin.ignore(); 
     getline(std::cin, name);
     registerUser(login, password, name);
 }
@@ -202,6 +201,20 @@ void NewChat::showAllUsers()
     cout << "Список зарегистрированных пользователей:" << endl;
     for (int i = 0; i < usersCount; ++i) {
         cout << "ID: " << usersArray[i].getId() << " | Имя: " << usersArray[i].getName() << endl;
+    }
+}
+
+void NewChat::resizer()
+{
+    if (usersCount == number_users) {
+        Users* newArray = new Users[number_users * 2];
+        for (int i = 0; i < number_users; i++)
+        {
+            newArray[i] = usersArray[i];
+        }
+        delete[] usersArray;
+        usersArray = newArray;
+        number_users *= 2;
     }
 }
 

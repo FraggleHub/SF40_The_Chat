@@ -42,11 +42,8 @@ public:
 #include <string>
 
 using namespace std;
-struct Message {
-	string sender;
-	int recipientID;
-	string text;
-};
+static int usersCount = 0;
+static int number_users = 5;
 
 class Users
 {
@@ -68,8 +65,8 @@ class NewChat
 {
 protected:
 	static int UserId;
-	Users* usersArray;
-	int usersCount;
+	Users* usersArray = new Users[number_users];
+	
 public:
 	void Prog();
 	NewChat();
@@ -78,4 +75,6 @@ public:
 	bool Entered(string login, string password);
 	void dataUser();
 	void showAllUsers();
+	void resizer();
+
 };
